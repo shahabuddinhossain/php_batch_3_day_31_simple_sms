@@ -23,8 +23,16 @@
 
 
 
+.mw-50{
+    max-width: 50px;
+}
+
 .mw-150{
     max-width: 150px;
+}
+
+.mh-50{
+    max-height: 50px !important;
 }
 
 .mh-100{

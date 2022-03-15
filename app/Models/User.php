@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use http\Env\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -57,5 +58,36 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+
+
+
     ];
+
+
+    private static $user;
+    public function newUser($request)
+
+    {
+        self::$user = new User();
+
+        self::$user->name           = $request->name;
+        self::$user->email          = $request->email;
+        self::$user->password       = bcrypt($request->password);
+        self::$user->save();
+    }
+
+    public static function updateUser($request, $id)
+    {
+        self::$user = User::find($id);
+        self::$user->name       = $request->name;
+        self::$user->email      = $request->email;
+
+        if(isset($request->password))
+        {
+            self::$user->password = bcrypt($request->password);
+        }
+        self::$user->save();
+    }
+
+
 }

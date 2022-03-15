@@ -19,7 +19,7 @@
             <ul class="navbar-nav">
                 <li><a href="{{route('home')}}" class="nav-link">Home</a></li>
                 <li><a href="{{route('home')}}" class="nav-link">All Courses</a></li>
-                <li><a href="{{route('user-login')}}" class="nav-link">login</a></li>
+                <li><a href="{{route('auth-login')}}" class="nav-link">login</a></li>
                 <li><a href="{{route('user-register')}}" class="nav-link">Registration</a></li>
             </ul>
     </div>
